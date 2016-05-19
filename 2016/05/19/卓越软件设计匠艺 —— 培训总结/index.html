@@ -1,0 +1,315 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8" />
+  
+  <title>卓越软件设计匠艺 —— 培训总结 | CrazyWen</title>
+  <meta name="author" content="crazywen" />
+
+  
+  <meta name="description" content="a lazy coder blog" />
+  
+
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+  <meta property="og:title" content="卓越软件设计匠艺 —— 培训总结" />
+  <meta property="og:site_name" content="CrazyWen" />
+
+  
+  
+
+  
+    <meta property="og:image" content="undefined" />
+  
+
+  
+  <link href="/css/images/favicon.ico" rel="icon" />
+  
+
+  <link rel="alternate" href="/atom.xml" title="CrazyWen" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+
+  <!-- baidu webmaster push -->
+  <script src='//push.zhanzhang.baidu.com/push.js'></script>
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">CrazyWen</a></h1>
+  <h2><a href="/">just kidding me?</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-05-19T05:45:31.000Z"><a href="/2016/05/19/卓越软件设计匠艺 —— 培训总结/">2016-05-19</a></time>
+      
+      
+  
+    <h1 class="title">卓越软件设计匠艺 —— 培训总结</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h1 id="卓越软件设计匠艺-——-培训总结"><a href="#卓越软件设计匠艺-——-培训总结" class="headerlink" title="卓越软件设计匠艺 —— 培训总结"></a>卓越软件设计匠艺 —— 培训总结</h1><p>标签： 软件设计 架构 职责 关注点</p>
+<p>—　</p>
+<h3 id="第一单元：面向对象设计之职责"><a href="#第一单元：面向对象设计之职责" class="headerlink" title="第一单元：面向对象设计之职责"></a>第一单元：面向对象设计之职责</h3><blockquote>
+<ul>
+<li>角色、职责与协作</li>
+<li>职责驱动设计</li>
+</ul>
+</blockquote>
+<p>面向对象设计的核心驱动力是<strong>对象的职责</strong>，合理的职责分配是卓越软件设计的前提。只有合理地分辨对象的职责，才能够定义良好的对象，并实现符合系统一致性的对象协作关系。</p>
+<h4 id="1-职责的层次"><a href="#1-职责的层次" class="headerlink" title="1. 职责的层次"></a>1. 职责的层次</h4><blockquote>
+<p>通过职责层次模型对需求进行分析，识别出业务价值、业务功能与业务实现。职责层次的分解可以有效地帮助设计者辨别职责。</p>
+<ol>
+<li>职责层次的识别 </li>
+<li>职责层次与软件架构层次之间的关系</li>
+<li>职责与概念、规约与实现               </li>
+<li>案例分析：分析邮件服务器代码暴露的问题，在可重用性、代码可维护性、可扩展性等诸多方面着手，剖析代码坏味道。通过分辨职责层次，来改善设计。并提出需求变更，从而引入对Observer模式、Strategy模式、Simple Factory模式、Mediator模式与Chain Of Responsibility模式的对比与分析；             </li>
+<li>实战演练：设计一个作业调度框架，它能够根据指定的时间触发作业，执行自定义任务。<h4 id="2-职责的分类"><a href="#2-职责的分类" class="headerlink" title="2. 职责的分类"></a>2. 职责的分类</h4>职责并不等于功能，也不等同于行为或方法。分析职责，应从对象的认知与行为入手。<h4 id="3-对象的角色"><a href="#3-对象的角色" class="headerlink" title="3. 对象的角色"></a>3. 对象的角色</h4>角色、职责与协作是三位一体的关系，角色是发起职责的对象，职责则应该是对象之间的协作。不同角色的对象，履行的职责是不同的。 </li>
+<li>信息持有者：信息的格式；是否需要持久化；信息源的改变，是否需要更新；处理信息的方式；</li>
+<li>构造者：构造者与构造对象的关系；构造的方式；聚合与合成； </li>
+<li>服务提供者：主动告知，被动告知；独立的行为；提供有业务价值的行为； </li>
+<li>协调者：如何委派和转发请求；如何通知其他对象要做的工作；如何通知状态的变化；</li>
+<li>控制者：控制者与被控制者的关系；控制的决策与逻辑；驱动其他对象；收集与决策有关的信息；</li>
+<li>案例：处理HTTP请求与应答，体现信息持有者角色；JMS对Queue的创建体现构造者角色；税务报告的生成体现服务提供者角色；服务定位器体现协调者角色；内容验证器体现控制者角色；<h4 id="4-职责与封装的关系"><a href="#4-职责与封装的关系" class="headerlink" title="4. 职责与封装的关系"></a>4. 职责与封装的关系</h4>缺乏合理的封装，就会缺少正确的领域对象，从而导致领域信息散乱分布到系统各个方法，使得概念不够清晰，导致职责混乱。<h4 id="5-模块级的职责分配"><a href="#5-模块级的职责分配" class="headerlink" title="5. 模块级的职责分配"></a>5. 模块级的职责分配</h4></li>
+<li>问题分析：模块之间职责的分配，在面临三种问题时，应该如何应对？通过对具体问题的分析，讨论模块之间的职责分配，以及对高内聚、松耦合的理解。同时，该问题分析还将引入Template Method模式； </li>
+<li>问题分析：错误的职责分配带来的循环依赖问题，以及对包的复用原则的违背，提出解决办法；</li>
+<li>模块重用：对eBay模块的分析，以及对某大型系统架构的演进，提出模块重用的方式；<h4 id="6-原则与模式"><a href="#6-原则与模式" class="headerlink" title="6. 原则与模式"></a>6. 原则与模式</h4></li>
+<li>单一职责原则：分析该原则的核心思想，关注对象的变化点； </li>
+<li>案例分析：功能引擎中对功能对象的加载，如何体现职责分离带来的好处；通过对案例分析引入Proxy模式； </li>
+<li>专家模式：专家模式的核心思想是信息的持有者是操作该信息的专家； </li>
+<li>案例分析：报表参数的处理方式，如何通过识别设计违背了专家模式，并依据专家模式对设计进行改进，从而巧妙地利用多态消除代码坏味道，并进而通过引入Adapter模式处理模块之间的依赖关系； </li>
+<li>自治对象：分析了自治对象的特征，分别包括：最小完备，稳定空间，自我履行与独立进化。 </li>
+<li>案例分析：用户状态机，给出了某金融系统中复杂的用户状态迁移，体现的复杂授权、登录等业务逻辑，并由此引入State模式来简化设计，体现自治对象的特征。</li>
+</ol>
+</blockquote>
+<h3 id="第二单元-面向对象设计之抽象"><a href="#第二单元-面向对象设计之抽象" class="headerlink" title="第二单元 面向对象设计之抽象"></a>第二单元 面向对象设计之抽象</h3><blockquote>
+<ul>
+<li>抽象与变化</li>
+<li>扩展式设计</li>
+</ul>
+</blockquote>
+<p>合理的职责分配并不能完全保证软件设计的卓越，因为需求变化是软件开发的常态，因此设计必须在一定程度满足变化，保证系统的可扩展性。</p>
+<h4 id="1-抽象的意义"><a href="#1-抽象的意义" class="headerlink" title="1. 抽象的意义"></a>1. 抽象的意义</h4><p>抽象的关键在于寻找多个对象（或行为）具有的共同特征，并对特性进行泛化。泛化的特征可以暴露在外，从而隔离内部的实现。 </p>
+<blockquote>
+<ol>
+<li>用例分析：对用例和参与者的泛化；遵循的原则； </li>
+<li>案例分析：授权框架的设计，体现了对共同特征的提取，合理引入Chain Of Responsibility模式与Template Method模式； </li>
+<li>案例分析：项目管理模型的抽象，通过对多种项目管理过程进行分析，对各种模型概念进行分类，并抽象出模型的共同特征，从而简化模型； </li>
+</ol>
+</blockquote>
+<h4 id="2-识别变化"><a href="#2-识别变化" class="headerlink" title="2. 识别变化"></a>2. 识别变化</h4><p>要保证设计的可扩展性，主要过程是识别变化点，然后对变化进行封装。 </p>
+<blockquote>
+<ol>
+<li>变化点：常见的变化点包括业务规则、算法策略、外部服务、硬件支持、命令请求、协议标准、数据格式、业务流程、系统配置、界面表现； </li>
+<li>案例分析：电子商务系统的Invoice业务规则，引入Specification模式；CIMS系统的机器加载策略，引入Strategy模式；短信服务，引入Facade模式与Adapter模式；人力资源系统考勤模块，引入Gateway模式； </li>
+<li>案例分析：CQRS框架，对命令处理逻辑的包装，引入Decorator模式，并通过分析变化点，引入另一种替代Decorator模式的设计。</li>
+</ol>
+</blockquote>
+<h4 id="3-依赖解耦"><a href="#3-依赖解耦" class="headerlink" title="3. 依赖解耦"></a>3. 依赖解耦</h4><p>处理变化的关键是要解除对具体对象的依赖。 </p>
+<blockquote>
+<ol>
+<li>表驱动法 </li>
+<li>配置与反射 </li>
+<li>IoC容器 </li>
+<li>惯例优于配置 </li>
+</ol>
+</blockquote>
+<h4 id="4-扩展式设计"><a href="#4-扩展式设计" class="headerlink" title="4. 扩展式设计"></a>4. 扩展式设计</h4><p>扩展式设计分为三个步骤，分别为：分离职责各司其职，利用抽象统一接口，引用接口预留空白。扩展式设计可以有效地保证整个系统的可扩展性。 </p>
+<blockquote>
+<ol>
+<li>扩展式设计的步骤 </li>
+<li>实战演练：订单处理，通过三次迭代逐步改进原有设计，并分别遵循专家模式、分离原则与扩展式设计，保证设计在修改最小的前提下满足需求变化。在设计演进中，讨论对设计模式的合理运用，并引入Specification模式； </li>
+<li>案例分析：配置管理框架的设计，该框架能够支持配置信息的多种存储形态，包括文件、数据库、LDAP等；支持多种获取配置的方式，如Web服务，REST服务。配置管理框架的接口需要保证其统一性和一致性，同时在满足可扩展要求下，提供接口的易用性。 </li>
+<li>案例分析：消息队列规范的设计。通过分析JMS、MSMQ、RabbitMQ和NServiceBus的设计，理解抽象的含义，例如理解面向接口设计、接口隔离原则、按意图设计、Facade模式与企业集成模式。<br>5.实战演练：CIMS基于消息的分布式架构。通过对服务的统一抽象，以及对消息处理的职责分配，建立一个协作合理的分布式架构。设计过程中会引入Command模式、Publisher – Subscriber模式、Message Bus模式、Message Translator模式、Lookup模式。</li>
+</ol>
+</blockquote>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href="/2016/05/19/卓越软件设计匠艺 —— 培训总结/#comment" class="comment-link">评论</a>
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">分享</a>
+        </div>
+        
+  
+  <div class="categories">
+    <a href="/categories/技术/">技术</a>, <a href="/categories/技术/工作/">工作</a>
+  </div>
+
+        
+  
+  <div class="tags">
+    <a href="/tags/软件设计/">软件设计</a>, <a href="/tags/设计模式/">设计模式</a>, <a href="/tags/职责/">职责</a>, <a href="/tags/面向对象/">面向对象</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">留言</h1>
+
+  <!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="post-卓越软件设计匠艺 —— 培训总结" data-title="卓越软件设计匠艺 —— 培训总结" data-url="http://crazywen.github.io/2016/05/19/卓越软件设计匠艺 —— 培训总结/"></div>
+  <!-- 多说评论框 end -->
+  <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+  <script type="text/javascript">
+  var duoshuoQuery = {short_name:'crazywen'};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+       || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+  <!-- 多说公共JS代码 end -->
+
+</section>
+
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:crazywen.github.io">
+  </form>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">分类</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/技术/工作/">工作</a><small>3</small></li>
+  
+    <li><a href="/categories/技术/">技术</a><small>4</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">最新文章</h3>
+  <ul class="entry">
+    
+      <li>
+        <a href="/2016/05/19/卓越软件设计匠艺 —— 培训总结/">卓越软件设计匠艺 —— 培训总结</a>
+      </li>
+    
+      <li>
+        <a href="/2016/02/19/进程和线程/">进程和线程</a>
+      </li>
+    
+      <li>
+        <a href="/2016/02/19/http2.0/">HTTP2.0 的改进</a>
+      </li>
+    
+      <li>
+        <a href="/2016/02/18/并行与并发/">并行和并发的区别</a>
+      </li>
+    
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/http2-0/">http2.0</a><small>1</small></li>
+  
+    <li><a href="/tags/并发/">并发</a><small>1</small></li>
+  
+    <li><a href="/tags/并行/">并行</a><small>1</small></li>
+  
+    <li><a href="/tags/线程/">线程</a><small>1</small></li>
+  
+    <li><a href="/tags/职责/">职责</a><small>1</small></li>
+  
+    <li><a href="/tags/设计模式/">设计模式</a><small>1</small></li>
+  
+    <li><a href="/tags/软件设计/">软件设计</a><small>1</small></li>
+  
+    <li><a href="/tags/进程/">进程</a><small>1</small></li>
+  
+    <li><a href="/tags/面向对象/">面向对象</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tagcloud">
+  <h3 class="title">标签云</h3>
+  <div class="entry">
+    <a href="/tags/http2-0/" style="font-size: 10px;">http2.0</a> <a href="/tags/并发/" style="font-size: 10px;">并发</a> <a href="/tags/并行/" style="font-size: 10px;">并行</a> <a href="/tags/线程/" style="font-size: 10px;">线程</a> <a href="/tags/职责/" style="font-size: 10px;">职责</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/软件设计/" style="font-size: 10px;">软件设计</a> <a href="/tags/进程/" style="font-size: 10px;">进程</a> <a href="/tags/面向对象/" style="font-size: 10px;">面向对象</a>
+  </div>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  <p>
+  
+  &copy; 2016 crazywen
+  
+  All rights reserved.</p>
+  <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</div>
+<div class="clearfix"></div>
+
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script></footer>
+  <script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+<div id='bg'></div>
+</body>
+</html>
