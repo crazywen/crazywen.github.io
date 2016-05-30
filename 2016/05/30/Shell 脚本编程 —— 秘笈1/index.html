@@ -1,0 +1,362 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8" />
+  
+  <title>Shell 脚本编程 —— 秘笈1 | CrazyWen</title>
+  <meta name="author" content="crazywen" />
+
+  
+  <meta name="description" content="a lazy coder blog" />
+  
+
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+  <meta property="og:title" content="Shell 脚本编程 —— 秘笈1" />
+  <meta property="og:site_name" content="CrazyWen" />
+
+  
+  
+
+  
+    <meta property="og:image" content="undefined" />
+  
+
+  
+  <link href="/css/images/favicon.ico" rel="icon" />
+  
+
+  <link rel="alternate" href="/atom.xml" title="CrazyWen" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+
+  <!-- baidu webmaster push -->
+  <script src='//push.zhanzhang.baidu.com/push.js'></script>
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">CrazyWen</a></h1>
+  <h2><a href="/">just kidding me?</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-05-30T08:45:31.000Z"><a href="/2016/05/30/Shell 脚本编程 —— 秘笈1/">2016-05-30</a></time>
+      
+      
+  
+    <h1 class="title">Shell 脚本编程 —— 秘笈1</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h1 id="Shell-脚本编程-——-秘笈1"><a href="#Shell-脚本编程-——-秘笈1" class="headerlink" title="Shell 脚本编程 —— 秘笈1"></a>Shell 脚本编程 —— 秘笈1</h1><p>标签： linux shell 脚本</p>
+<hr>
+<h3 id="shell脚本编程的特点"><a href="#shell脚本编程的特点" class="headerlink" title="shell脚本编程的特点"></a>shell脚本编程的特点</h3><blockquote>
+<p>简单、快速以及轻松</p>
+</blockquote>
+<h3 id="第一个shell脚本编程"><a href="#第一个shell脚本编程" class="headerlink" title="第一个shell脚本编程"></a>第一个shell脚本编程</h3><p>为了能成功编写有一个shell脚本，需要做三件事情</p>
+<blockquote>
+<ol>
+<li>写一个脚本</li>
+<li>赋予脚本可执行权限</li>
+<li>把脚本放在shell可以找到的某个地方</li>
+</ol>
+</blockquote>
+<p>如下是一个文件，文件名hello_world<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh </span></span><br><span class="line"><span class="comment"># 第一行#!是声明指令，来调用这个脚本的shell来检测</span></span><br><span class="line"><span class="comment"># My first script</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"hello world!"</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="1-编程的基本要素"><a href="#1-编程的基本要素" class="headerlink" title="1. 编程的基本要素"></a>1. 编程的基本要素</h3><h4 id="1-1-变量"><a href="#1-1-变量" class="headerlink" title="1.1 变量"></a>1.1 变量</h4><p>变量是通过名字能访问到的存储信息的内存。</p>
+<blockquote>
+<p>与大多数解释型语言相同，shell编程中变量无需事先声明。shell对变量是一视同仁的，只要看到以 <strong>$</strong> 开始的单词，它就去寻找变量的值然后替换它。</p>
+</blockquote>
+<p>变量名的命名必须遵循以下规则：</p>
+<blockquote>
+<ul>
+<li>首个字符必须为字母（<strong>a-z,A-Z</strong>）</li>
+<li>中间不能有空格，可以使用下划线（<strong>_</strong>）</li>
+<li>不能使用标点符号</li>
+<li>不能使用bash里的关键字（可用help命令查看保留关键字）</li>
+</ul>
+</blockquote>
+<h4 id="1-2-运算"><a href="#1-2-运算" class="headerlink" title="1.2 运算"></a>1.2 运算</h4><p>只提供了<strong>整数</strong>的数学运算，并且不检测溢出。和其他语言一样，对除法运算的要求是除数不能为0，也可以捕获到除以零的情况并报错。<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">weight=1</span><br><span class="line">weight=<span class="variable">$weight</span>+1</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$weight</span></span><br></pre></td></tr></table></figure></p>
+<p>打印出来的结果不是<strong>2</strong>而是<strong>1+1</strong>。为了达到我们的预期效果，有以下集中表达方式可供参考(基本的运算除了有加减乘除+-*/，还有取余运算)：</p>
+<blockquote>
+<ul>
+<li>expr用于整数值运算，每一项用空格隔开</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; weight=`expr <span class="variable">$weight</span> + 1`</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意“+”号两边的空格，否则还是按照字符串的方式赋值。“`”符号与$(命令)的语法等效，用于获取命令的stdout中的内容。expr实际上是一个命令，表达式计算结果输出到stdout中。做乘法时需要注意，以为“<em>”在shell中有特殊意义，所以应该写成“\</em>”或者用引号“”””括起来。另外，`命令`是一种古老的表示方法，用$(命令)更好。</p>
+<ul>
+<li>let 表示数学运算<br>let “weight+=1” 或 let “weight=$weight+1”</li>
+<li>(())方式与let类型<br>((weight+=1)) 或 ((weight=$weight+1))</li>
+<li>$[]将中括号内的表达式作为数学运算先计算结果再输出<br>weight=$[$weight+1]</li>
+</ul>
+</blockquote>
+</blockquote>
+<h4 id="1-3-流程控制"><a href="#1-3-流程控制" class="headerlink" title="1.3 流程控制"></a>1.3 流程控制</h4><p>脚本程序包含了一系列的命令，一行一行地开始执行直到最后结束。但是大多数程序的结构不止如此，还有比较复杂的逻辑，会根据不同情况（条件）进行不同的动作。通过使用shell提供的 <strong>if 、 exit 、 for 、 while 、 until 、 case 、 break 、 continue</strong> 这些关键字我们可以控制执行的顺序。</p>
+<h5 id="1-if-语句"><a href="#1-if-语句" class="headerlink" title="1. if 语句"></a>1. if 语句</h5><p>if 命令有三种形式</p>
+<blockquote>
+<ul>
+<li><p>第一种</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="comment">#条件为真执行;条件为假不做任何事情</span></span><br><span class="line">&gt; <span class="keyword">if</span> condition ; <span class="keyword">then</span></span><br><span class="line">&gt;     commands</span><br><span class="line">&gt; <span class="keyword">fi</span></span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>第二种</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="comment">#条件为真执行command1;条件为假执行command2</span></span><br><span class="line">&gt; <span class="keyword">if</span> condition ; <span class="keyword">then</span></span><br><span class="line">&gt;     <span class="built_in">command</span>1</span><br><span class="line">&gt; <span class="keyword">else</span> </span><br><span class="line">&gt;     <span class="built_in">command</span>2</span><br><span class="line">&gt; <span class="keyword">fi</span></span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>第三种</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="comment">#条件1为真执行command1;条件2为真时执行command2</span></span><br><span class="line">&gt; <span class="keyword">if</span> condition1 ; <span class="keyword">then</span></span><br><span class="line">&gt;     <span class="built_in">command</span>1</span><br><span class="line">&gt; <span class="keyword">else</span> condition2 ; <span class="keyword">then</span></span><br><span class="line">&gt;     <span class="built_in">command</span>2</span><br><span class="line">&gt; <span class="keyword">fi</span></span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<h5 id="2-test-语句"><a href="#2-test-语句" class="headerlink" title="2. test 语句"></a>2. test 语句</h5><p>一个正确编写的Unix应用程序会告诉操作系统执行地成功与否。它用什么方法告诉系统呢？那就是我们经常用到的<strong>exit</strong>状态。exit的状态数值的范围为0~255。“0”表示成功，其他数值都表示失败。<strong>exit</strong>状态有两个很重要的功能。第一个作用是检测和处理错误，第二个作用是可以执行 <strong>true/false</strong> 测试。<br>这种 <strong>true/false</strong> 的判断经常时通过test和if一起配合实现的，可以有两种语法形式：</p>
+<blockquote>
+<ul>
+<li>第一种形式\<br><code>test expression</code></li>
+<li>第二种形式 （注意：“[”、“]”和expression 之间必须有空格）\<br><code>[ expression ]</code></li>
+</ul>
+</blockquote>
+<p>test 命令工作很简单。如果给定的表达式为true，test退出的状态值为0，否则退出的状态值为1。\<br>test 命令可以判断3类条件：</p>
+<blockquote>
+<ol>
+<li>数值比较<blockquote>
+<ul>
+<li>-eq  [ n1 -eq n2 ] 检查n1是否与n2相等</li>
+<li>-ge  [ n1 -ge n2 ] 检查n1是否大于或等于n2</li>
+<li>-gt  [ n1 -gt n2 ] 检查n1是否大于n2</li>
+<li>-le  [ n1 -le n2 ] 检查n1是否小于或等于n2</li>
+<li>-lt  [ n1 -lt n2 ] 检查n1是否小于n2</li>
+<li>-ne  [ n1 -ne n2 ] 检查n1是否不等于n2</li>
+</ul>
+</blockquote>
+</li>
+<li>字符串比较<blockquote>
+<ul>
+<li>=  [ str1 = str2 ]   检查str1是否和str2相同</li>
+<li>!=  [ str1 != str2 ]  检查str1是否和str2不同</li>
+<li>&lt;  [ str1 &lt; str2 ]   检查str1是否比str2小</li>
+<li>>  [ str1 &gt; str2 ]   检查str1是否比str2大</li>
+<li>-n  [ -n str1 ]       检查str1的长度是否非0</li>
+<li>-z  [ -z str1 ]       检查str1的长度是否为0</li>
+</ul>
+</blockquote>
+</li>
+<li>文件比较<blockquote>
+<ul>
+<li>-d  [ -d file ]    检查file是否存在并且是一个目录</li>
+<li>-e  [ -e file ]    检查file是否存在</li>
+<li>-f  [ -f file ]    检查file是否存在并且是一个文件</li>
+<li>-r  [ -r file ]    检查file是否存在并且可读</li>
+<li>-s  [ -s file ]    检查file是否存在并且非空</li>
+<li>-w  [ -w file ]    检查file是否存在并且可写</li>
+<li>-x  [ -x file ]    检查file是否存在并且可执行</li>
+<li>-O  [ -O file ]    检查file是否存在并且属当前用户所有</li>
+<li>-G  [ -G file ]    检查file是否存在并且默认组与当前用户相同</li>
+<li>-nt [ file1 -nt file2 ]    检查file1是否比file2新</li>
+<li>-ot [ file1 -ot file2 ]    检查file1是否比file2旧</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+</blockquote>
+<h5 id="3-exit-语句"><a href="#3-exit-语句" class="headerlink" title="3. exit 语句"></a>3. exit 语句</h5><p>一个好的脚本编程者应该在脚本完成时设置 <strong>exit</strong> 状态。为了实现这个要求，就要使用 <strong>exit</strong> 命令。exit命令使脚本带着状态值立刻退出。例如：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">exit</span> 0 <span class="comment"># 退出脚本，状态值为0 （成功）</span></span><br><span class="line"><span class="built_in">exit</span> 1 <span class="comment"># 退出脚本，状态值为1 （失败）</span></span><br></pre></td></tr></table></figure></p>
+<h5 id="4-case-语句"><a href="#4-case-语句" class="headerlink" title="4. case 语句"></a>4. case 语句</h5><p>case表达式可以用来匹配一个给定的字符串，而不是数字。case语句有以下格式：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">case</span> word <span class="keyword">in</span> </span><br><span class="line">    模式) 声明 ;;</span><br><span class="line"><span class="keyword">esac</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">case</span> <span class="variable">$1</span> <span class="keyword">in</span> </span><br><span class="line">    -h) <span class="built_in">help</span>; <span class="built_in">shift</span> 1;; <span class="comment">#调用help函数</span></span><br><span class="line">    --) <span class="built_in">shift</span>; <span class="built_in">break</span>;;  <span class="comment">#结束选项</span></span><br><span class="line">    -*) error <span class="string">"error: no such option <span class="variable">$1</span>. -h for help"</span>;; <span class="comment"># 错误提示</span></span><br><span class="line">    *)  <span class="built_in">break</span>;; <span class="comment">#退出判断</span></span><br><span class="line"><span class="keyword">esac</span></span><br></pre></td></tr></table></figure>
+<p>上面使用了一个特殊变量$1，该变量包含有传递给这个脚本的第一个参数值。“*”意味着匹配任何东西。在最后的模式匹配中加入*这项是个好习惯，可以用它来检测非法的输入。</p>
+<h5 id="5-for-while-循环语句"><a href="#5-for-while-循环语句" class="headerlink" title="5. for/while 循环语句"></a>5. for/while 循环语句</h5><p>循环是只要条件成立就反复执行。shell有两种形式的循环，一种是while(until),另一种是for。<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> ... ; <span class="keyword">do</span></span><br><span class="line">...</span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure></p>
+<p>只要测试表达式条件为真，则while循环将一直运行。关键字“break”用来跳出循环，而关键字“continue”则可以跳过一个循环的余下部分，直接跳到下一次循环中。<br>for循环会查看一个字符串行表（字符串用空格分隔），若找到匹配进行循环：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> var <span class="keyword">in</span> ... ; <span class="keyword">do</span> </span><br><span class="line">...</span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href="/2016/05/30/Shell 脚本编程 —— 秘笈1/#comment" class="comment-link">评论</a>
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">分享</a>
+        </div>
+        
+  
+  <div class="categories">
+    <a href="/categories/技术/">技术</a>
+  </div>
+
+        
+  
+  <div class="tags">
+    <a href="/tags/Shell/">Shell</a>, <a href="/tags/Linux/">Linux</a>
+  </div>
+
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">留言</h1>
+
+  <!-- 多说评论框 start -->
+  <div class="ds-thread" data-thread-key="post-Shell 脚本编程 —— 秘笈1" data-title="Shell 脚本编程 —— 秘笈1" data-url="http://crazywen.github.io/2016/05/30/Shell 脚本编程 —— 秘笈1/"></div>
+  <!-- 多说评论框 end -->
+  <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+  <script type="text/javascript">
+  var duoshuoQuery = {short_name:'crazywen'};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+       || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+  <!-- 多说公共JS代码 end -->
+
+</section>
+
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:crazywen.github.io">
+  </form>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">分类</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/技术/工作/">工作</a><small>3</small></li>
+  
+    <li><a href="/categories/技术/">技术</a><small>5</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">最新文章</h3>
+  <ul class="entry">
+    
+      <li>
+        <a href="/2016/05/30/Shell 脚本编程 —— 秘笈1/">Shell 脚本编程 —— 秘笈1</a>
+      </li>
+    
+      <li>
+        <a href="/2016/05/19/卓越软件设计匠艺 —— 培训总结/">卓越软件设计匠艺 —— 培训总结</a>
+      </li>
+    
+      <li>
+        <a href="/2016/02/19/进程和线程/">进程和线程</a>
+      </li>
+    
+      <li>
+        <a href="/2016/02/19/http2.0/">HTTP2.0 的改进</a>
+      </li>
+    
+      <li>
+        <a href="/2016/02/18/并行与并发/">并行和并发的区别</a>
+      </li>
+    
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/Linux/">Linux</a><small>1</small></li>
+  
+    <li><a href="/tags/Shell/">Shell</a><small>1</small></li>
+  
+    <li><a href="/tags/http2-0/">http2.0</a><small>1</small></li>
+  
+    <li><a href="/tags/并发/">并发</a><small>1</small></li>
+  
+    <li><a href="/tags/并行/">并行</a><small>1</small></li>
+  
+    <li><a href="/tags/线程/">线程</a><small>1</small></li>
+  
+    <li><a href="/tags/职责/">职责</a><small>1</small></li>
+  
+    <li><a href="/tags/设计模式/">设计模式</a><small>1</small></li>
+  
+    <li><a href="/tags/软件设计/">软件设计</a><small>1</small></li>
+  
+    <li><a href="/tags/进程/">进程</a><small>1</small></li>
+  
+    <li><a href="/tags/面向对象/">面向对象</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tagcloud">
+  <h3 class="title">标签云</h3>
+  <div class="entry">
+    <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Shell/" style="font-size: 10px;">Shell</a> <a href="/tags/http2-0/" style="font-size: 10px;">http2.0</a> <a href="/tags/并发/" style="font-size: 10px;">并发</a> <a href="/tags/并行/" style="font-size: 10px;">并行</a> <a href="/tags/线程/" style="font-size: 10px;">线程</a> <a href="/tags/职责/" style="font-size: 10px;">职责</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/软件设计/" style="font-size: 10px;">软件设计</a> <a href="/tags/进程/" style="font-size: 10px;">进程</a> <a href="/tags/面向对象/" style="font-size: 10px;">面向对象</a>
+  </div>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  <p>
+  
+  &copy; 2016 crazywen
+  
+  All rights reserved.</p>
+  <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</div>
+<div class="clearfix"></div>
+
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script></footer>
+  <script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+<div id='bg'></div>
+</body>
+</html>
