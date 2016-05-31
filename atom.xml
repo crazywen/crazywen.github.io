@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://crazywen.github.io/"/>
-  <updated>2016-05-30T08:37:50.913Z</updated>
+  <updated>2016-05-31T06:24:35.276Z</updated>
   <id>http://crazywen.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://crazywen.github.io/2016/05/30/Shell%20%E8%84%9A%E6%9C%AC%E7%BC%96%E7%A8%8B%20%E2%80%94%E2%80%94%20%E7%A7%98%E7%AC%881/"/>
     <id>http://crazywen.github.io/2016/05/30/Shell 脚本编程 —— 秘笈1/</id>
     <published>2016-05-30T08:45:31.000Z</published>
-    <updated>2016-05-30T08:37:50.913Z</updated>
+    <updated>2016-05-31T06:24:35.276Z</updated>
     
     <content type="html">&lt;h1 id=&quot;Shell-脚本编程-——-秘笈1&quot;&gt;&lt;a href=&quot;#Shell-脚本编程-——-秘笈1&quot; class=&quot;headerlink&quot; title=&quot;Shell 脚本编程 —— 秘笈1&quot;&gt;&lt;/a&gt;Shell 脚本编程 —— 秘笈1&lt;/h1&gt;&lt;p&gt;标签： linux shell 脚本&lt;/p&gt;
 &lt;hr&gt;
@@ -53,17 +53,15 @@
 &lt;p&gt;打印出来的结果不是&lt;strong&gt;2&lt;/strong&gt;而是&lt;strong&gt;1+1&lt;/strong&gt;。为了达到我们的预期效果，有以下集中表达方式可供参考(基本的运算除了有加减乘除+-*/，还有取余运算)：&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;ul&gt;
-&lt;li&gt;expr用于整数值运算，每一项用空格隔开&lt;/li&gt;
+&lt;li&gt;expr用于整数值运算，每一项用空格隔开&lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;gt; weight=`expr &lt;span class=&quot;variable&quot;&gt;$weight&lt;/span&gt; + 1`&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
-&lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;gt; weight=`expr &lt;span class=&quot;variable&quot;&gt;$weight&lt;/span&gt; + 1`&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;blockquote&gt;
-&lt;p&gt;注意“+”号两边的空格，否则还是按照字符串的方式赋值。“`”符号与$(命令)的语法等效，用于获取命令的stdout中的内容。expr实际上是一个命令，表达式计算结果输出到stdout中。做乘法时需要注意，以为“&lt;em&gt;”在shell中有特殊意义，所以应该写成“\&lt;/em&gt;”或者用引号“”””括起来。另外，`命令`是一种古老的表示方法，用$(命令)更好。&lt;/p&gt;
+&lt;p&gt;注意“+”号两边的空格，否则还是按照字符串的方式赋值。“`”符号与$(命令)的语法等效，用于获取命令的stdout中的内容。expr实际上是一个命令，表达式计算结果输出到stdout中。做乘法时需要注意，因为“*”在shell中有特殊意义，所以应该写成“\*”或者用引号“”*“”括起来。另外，`命令`是一种古老的表示方法，用$(命令)更好。&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;let 表示数学运算&lt;br&gt;let “weight+=1” 或 let “weight=$weight+1”&lt;/li&gt;
-&lt;li&gt;(())方式与let类型&lt;br&gt;((weight+=1)) 或 ((weight=$weight+1))&lt;/li&gt;
-&lt;li&gt;$[]将中括号内的表达式作为数学运算先计算结果再输出&lt;br&gt;weight=$[$weight+1]&lt;/li&gt;
+&lt;li&gt;let 表示数学运算&lt;br&gt;&lt;code&gt;let &amp;quot;weight+=1&amp;quot;&lt;/code&gt; 或 &lt;code&gt;let &amp;quot;weight=$weight+1&amp;quot;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;(())方式与let类型&lt;br&gt;&lt;code&gt;((weight+=1))&lt;/code&gt; 或 &lt;code&gt;((weight=$weight+1))&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;$[]将中括号内的表达式作为数学运算先计算结果再输出&lt;br&gt;&lt;code&gt;weight=$[$weight+1]&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;/blockquote&gt;
 &lt;/blockquote&gt;
 &lt;h4 id=&quot;1-3-流程控制&quot;&gt;&lt;a href=&quot;#1-3-流程控制&quot; class=&quot;headerlink&quot; title=&quot;1.3 流程控制&quot;&gt;&lt;/a&gt;1.3 流程控制&lt;/h4&gt;&lt;p&gt;脚本程序包含了一系列的命令，一行一行地开始执行直到最后结束。但是大多数程序的结构不止如此，还有比较复杂的逻辑，会根据不同情况（条件）进行不同的动作。通过使用shell提供的 &lt;strong&gt;if 、 exit 、 for 、 while 、 until 、 case 、 break 、 continue&lt;/strong&gt; 这些关键字我们可以控制执行的顺序。&lt;/p&gt;
 &lt;h5 id=&quot;1-if-语句&quot;&gt;&lt;a href=&quot;#1-if-语句&quot; class=&quot;headerlink&quot; title=&quot;1. if 语句&quot;&gt;&lt;/a&gt;1. if 语句&lt;/h5&gt;&lt;p&gt;if 命令有三种形式&lt;/p&gt;
@@ -76,7 +74,7 @@
 &lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;gt; &lt;span class=&quot;comment&quot;&gt;#条件为真执行command1;条件为假执行command2&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;gt; &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; condition ; &lt;span class=&quot;keyword&quot;&gt;then&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;gt;     &lt;span class=&quot;built_in&quot;&gt;command&lt;/span&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;gt; &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;gt;     &lt;span class=&quot;built_in&quot;&gt;command&lt;/span&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;gt; &lt;span class=&quot;keyword&quot;&gt;fi&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;第三种&lt;/p&gt;
-&lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;gt; &lt;span class=&quot;comment&quot;&gt;#条件1为真执行command1;条件2为真时执行command2&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;gt; &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; condition1 ; &lt;span class=&quot;keyword&quot;&gt;then&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;gt;     &lt;span class=&quot;built_in&quot;&gt;command&lt;/span&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;gt; &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt; condition2 ; &lt;span class=&quot;keyword&quot;&gt;then&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;gt;     &lt;span class=&quot;built_in&quot;&gt;command&lt;/span&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;gt; &lt;span class=&quot;keyword&quot;&gt;fi&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;gt; &lt;span class=&quot;comment&quot;&gt;#条件1为真执行command1;条件2为真时执行command2&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;gt; &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; condition1 ; &lt;span class=&quot;keyword&quot;&gt;then&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;gt;     &lt;span class=&quot;built_in&quot;&gt;command&lt;/span&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;gt; &lt;span class=&quot;keyword&quot;&gt;elif&lt;/span&gt; condition2 ; &lt;span class=&quot;keyword&quot;&gt;then&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;gt;     &lt;span class=&quot;built_in&quot;&gt;command&lt;/span&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;gt; &lt;span class=&quot;keyword&quot;&gt;fi&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/blockquote&gt;
