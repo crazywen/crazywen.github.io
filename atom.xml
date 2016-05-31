@@ -1,0 +1,433 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>CrazyWen</title>
+  <subtitle>just do it</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://crazywen.github.io/"/>
+  <updated>2016-05-30T08:37:50.913Z</updated>
+  <id>http://crazywen.github.io/</id>
+  
+  <author>
+    <name>crazywen</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Shell 脚本编程 —— 秘笈1</title>
+    <link href="http://crazywen.github.io/2016/05/30/Shell%20%E8%84%9A%E6%9C%AC%E7%BC%96%E7%A8%8B%20%E2%80%94%E2%80%94%20%E7%A7%98%E7%AC%881/"/>
+    <id>http://crazywen.github.io/2016/05/30/Shell 脚本编程 —— 秘笈1/</id>
+    <published>2016-05-30T08:45:31.000Z</published>
+    <updated>2016-05-30T08:37:50.913Z</updated>
+    
+    <content type="html">&lt;h1 id=&quot;Shell-脚本编程-——-秘笈1&quot;&gt;&lt;a href=&quot;#Shell-脚本编程-——-秘笈1&quot; class=&quot;headerlink&quot; title=&quot;Shell 脚本编程 —— 秘笈1&quot;&gt;&lt;/a&gt;Shell 脚本编程 —— 秘笈1&lt;/h1&gt;&lt;p&gt;标签： linux shell 脚本&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&quot;shell脚本编程的特点&quot;&gt;&lt;a href=&quot;#shell脚本编程的特点&quot; class=&quot;headerlink&quot; title=&quot;shell脚本编程的特点&quot;&gt;&lt;/a&gt;shell脚本编程的特点&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;简单、快速以及轻松&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;第一个shell脚本编程&quot;&gt;&lt;a href=&quot;#第一个shell脚本编程&quot; class=&quot;headerlink&quot; title=&quot;第一个shell脚本编程&quot;&gt;&lt;/a&gt;第一个shell脚本编程&lt;/h3&gt;&lt;p&gt;为了能成功编写有一个shell脚本，需要做三件事情&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;写一个脚本&lt;/li&gt;
+&lt;li&gt;赋予脚本可执行权限&lt;/li&gt;
+&lt;li&gt;把脚本放在shell可以找到的某个地方&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;如下是一个文件，文件名hello_world&lt;br&gt;&lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#!/bin/sh &lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 第一行#!是声明指令，来调用这个脚本的shell来检测&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# My first script&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;hello world!&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h3 id=&quot;1-编程的基本要素&quot;&gt;&lt;a href=&quot;#1-编程的基本要素&quot; class=&quot;headerlink&quot; title=&quot;1. 编程的基本要素&quot;&gt;&lt;/a&gt;1. 编程的基本要素&lt;/h3&gt;&lt;h4 id=&quot;1-1-变量&quot;&gt;&lt;a href=&quot;#1-1-变量&quot; class=&quot;headerlink&quot; title=&quot;1.1 变量&quot;&gt;&lt;/a&gt;1.1 变量&lt;/h4&gt;&lt;p&gt;变量是通过名字能访问到的存储信息的内存。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;与大多数解释型语言相同，shell编程中变量无需事先声明。shell对变量是一视同仁的，只要看到以 &lt;strong&gt;$&lt;/strong&gt; 开始的单词，它就去寻找变量的值然后替换它。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;变量名的命名必须遵循以下规则：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;首个字符必须为字母（&lt;strong&gt;a-z,A-Z&lt;/strong&gt;）&lt;/li&gt;
+&lt;li&gt;中间不能有空格，可以使用下划线（&lt;strong&gt;_&lt;/strong&gt;）&lt;/li&gt;
+&lt;li&gt;不能使用标点符号&lt;/li&gt;
+&lt;li&gt;不能使用bash里的关键字（可用help命令查看保留关键字）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&quot;1-2-运算&quot;&gt;&lt;a href=&quot;#1-2-运算&quot; class=&quot;headerlink&quot; title=&quot;1.2 运算&quot;&gt;&lt;/a&gt;1.2 运算&lt;/h4&gt;&lt;p&gt;只提供了&lt;strong&gt;整数&lt;/strong&gt;的数学运算，并且不检测溢出。和其他语言一样，对除法运算的要求是除数不能为0，也可以捕获到除以零的情况并报错。&lt;br&gt;&lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;weight=1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;weight=&lt;span class=&quot;variable&quot;&gt;$weight&lt;/span&gt;+1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;variable&quot;&gt;$weight&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;打印出来的结果不是&lt;strong&gt;2&lt;/strong&gt;而是&lt;strong&gt;1+1&lt;/strong&gt;。为了达到我们的预期效果，有以下集中表达方式可供参考(基本的运算除了有加减乘除+-*/，还有取余运算)：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;expr用于整数值运算，每一项用空格隔开&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;gt; weight=`expr &lt;span class=&quot;variable&quot;&gt;$weight&lt;/span&gt; + 1`&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;blockquote&gt;
+&lt;p&gt;注意“+”号两边的空格，否则还是按照字符串的方式赋值。“`”符号与$(命令)的语法等效，用于获取命令的stdout中的内容。expr实际上是一个命令，表达式计算结果输出到stdout中。做乘法时需要注意，以为“&lt;em&gt;”在shell中有特殊意义，所以应该写成“\&lt;/em&gt;”或者用引号“”””括起来。另外，`命令`是一种古老的表示方法，用$(命令)更好。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;let 表示数学运算&lt;br&gt;let “weight+=1” 或 let “weight=$weight+1”&lt;/li&gt;
+&lt;li&gt;(())方式与let类型&lt;br&gt;((weight+=1)) 或 ((weight=$weight+1))&lt;/li&gt;
+&lt;li&gt;$[]将中括号内的表达式作为数学运算先计算结果再输出&lt;br&gt;weight=$[$weight+1]&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&quot;1-3-流程控制&quot;&gt;&lt;a href=&quot;#1-3-流程控制&quot; class=&quot;headerlink&quot; title=&quot;1.3 流程控制&quot;&gt;&lt;/a&gt;1.3 流程控制&lt;/h4&gt;&lt;p&gt;脚本程序包含了一系列的命令，一行一行地开始执行直到最后结束。但是大多数程序的结构不止如此，还有比较复杂的逻辑，会根据不同情况（条件）进行不同的动作。通过使用shell提供的 &lt;strong&gt;if 、 exit 、 for 、 while 、 until 、 case 、 break 、 continue&lt;/strong&gt; 这些关键字我们可以控制执行的顺序。&lt;/p&gt;
+&lt;h5 id=&quot;1-if-语句&quot;&gt;&lt;a href=&quot;#1-if-语句&quot; class=&quot;headerlink&quot; title=&quot;1. if 语句&quot;&gt;&lt;/a&gt;1. if 语句&lt;/h5&gt;&lt;p&gt;if 命令有三种形式&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;第一种&lt;/p&gt;
+&lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;gt; &lt;span class=&quot;comment&quot;&gt;#条件为真执行;条件为假不做任何事情&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;gt; &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; condition ; &lt;span class=&quot;keyword&quot;&gt;then&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;gt;     commands&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;gt; &lt;span class=&quot;keyword&quot;&gt;fi&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;第二种&lt;/p&gt;
+&lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;gt; &lt;span class=&quot;comment&quot;&gt;#条件为真执行command1;条件为假执行command2&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;gt; &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; condition ; &lt;span class=&quot;keyword&quot;&gt;then&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;gt;     &lt;span class=&quot;built_in&quot;&gt;command&lt;/span&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;gt; &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;gt;     &lt;span class=&quot;built_in&quot;&gt;command&lt;/span&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;gt; &lt;span class=&quot;keyword&quot;&gt;fi&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;第三种&lt;/p&gt;
+&lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;gt; &lt;span class=&quot;comment&quot;&gt;#条件1为真执行command1;条件2为真时执行command2&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;gt; &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; condition1 ; &lt;span class=&quot;keyword&quot;&gt;then&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;gt;     &lt;span class=&quot;built_in&quot;&gt;command&lt;/span&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;gt; &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt; condition2 ; &lt;span class=&quot;keyword&quot;&gt;then&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;gt;     &lt;span class=&quot;built_in&quot;&gt;command&lt;/span&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;gt; &lt;span class=&quot;keyword&quot;&gt;fi&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;h5 id=&quot;2-test-语句&quot;&gt;&lt;a href=&quot;#2-test-语句&quot; class=&quot;headerlink&quot; title=&quot;2. test 语句&quot;&gt;&lt;/a&gt;2. test 语句&lt;/h5&gt;&lt;p&gt;一个正确编写的Unix应用程序会告诉操作系统执行地成功与否。它用什么方法告诉系统呢？那就是我们经常用到的&lt;strong&gt;exit&lt;/strong&gt;状态。exit的状态数值的范围为0~255。“0”表示成功，其他数值都表示失败。&lt;strong&gt;exit&lt;/strong&gt;状态有两个很重要的功能。第一个作用是检测和处理错误，第二个作用是可以执行 &lt;strong&gt;true/false&lt;/strong&gt; 测试。&lt;br&gt;这种 &lt;strong&gt;true/false&lt;/strong&gt; 的判断经常时通过test和if一起配合实现的，可以有两种语法形式：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;第一种形式\&lt;br&gt;&lt;code&gt;test expression&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;第二种形式 （注意：“[”、“]”和expression 之间必须有空格）\&lt;br&gt;&lt;code&gt;[ expression ]&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;test 命令工作很简单。如果给定的表达式为true，test退出的状态值为0，否则退出的状态值为1。\&lt;br&gt;test 命令可以判断3类条件：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;数值比较&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;-eq  [ n1 -eq n2 ] 检查n1是否与n2相等&lt;/li&gt;
+&lt;li&gt;-ge  [ n1 -ge n2 ] 检查n1是否大于或等于n2&lt;/li&gt;
+&lt;li&gt;-gt  [ n1 -gt n2 ] 检查n1是否大于n2&lt;/li&gt;
+&lt;li&gt;-le  [ n1 -le n2 ] 检查n1是否小于或等于n2&lt;/li&gt;
+&lt;li&gt;-lt  [ n1 -lt n2 ] 检查n1是否小于n2&lt;/li&gt;
+&lt;li&gt;-ne  [ n1 -ne n2 ] 检查n1是否不等于n2&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;字符串比较&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;=  [ str1 = str2 ]   检查str1是否和str2相同&lt;/li&gt;
+&lt;li&gt;!=  [ str1 != str2 ]  检查str1是否和str2不同&lt;/li&gt;
+&lt;li&gt;&amp;lt;  [ str1 &amp;lt; str2 ]   检查str1是否比str2小&lt;/li&gt;
+&lt;li&gt;&gt;  [ str1 &amp;gt; str2 ]   检查str1是否比str2大&lt;/li&gt;
+&lt;li&gt;-n  [ -n str1 ]       检查str1的长度是否非0&lt;/li&gt;
+&lt;li&gt;-z  [ -z str1 ]       检查str1的长度是否为0&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;文件比较&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;-d  [ -d file ]    检查file是否存在并且是一个目录&lt;/li&gt;
+&lt;li&gt;-e  [ -e file ]    检查file是否存在&lt;/li&gt;
+&lt;li&gt;-f  [ -f file ]    检查file是否存在并且是一个文件&lt;/li&gt;
+&lt;li&gt;-r  [ -r file ]    检查file是否存在并且可读&lt;/li&gt;
+&lt;li&gt;-s  [ -s file ]    检查file是否存在并且非空&lt;/li&gt;
+&lt;li&gt;-w  [ -w file ]    检查file是否存在并且可写&lt;/li&gt;
+&lt;li&gt;-x  [ -x file ]    检查file是否存在并且可执行&lt;/li&gt;
+&lt;li&gt;-O  [ -O file ]    检查file是否存在并且属当前用户所有&lt;/li&gt;
+&lt;li&gt;-G  [ -G file ]    检查file是否存在并且默认组与当前用户相同&lt;/li&gt;
+&lt;li&gt;-nt [ file1 -nt file2 ]    检查file1是否比file2新&lt;/li&gt;
+&lt;li&gt;-ot [ file1 -ot file2 ]    检查file1是否比file2旧&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;h5 id=&quot;3-exit-语句&quot;&gt;&lt;a href=&quot;#3-exit-语句&quot; class=&quot;headerlink&quot; title=&quot;3. exit 语句&quot;&gt;&lt;/a&gt;3. exit 语句&lt;/h5&gt;&lt;p&gt;一个好的脚本编程者应该在脚本完成时设置 &lt;strong&gt;exit&lt;/strong&gt; 状态。为了实现这个要求，就要使用 &lt;strong&gt;exit&lt;/strong&gt; 命令。exit命令使脚本带着状态值立刻退出。例如：&lt;br&gt;&lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;exit&lt;/span&gt; 0 &lt;span class=&quot;comment&quot;&gt;# 退出脚本，状态值为0 （成功）&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;exit&lt;/span&gt; 1 &lt;span class=&quot;comment&quot;&gt;# 退出脚本，状态值为1 （失败）&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h5 id=&quot;4-case-语句&quot;&gt;&lt;a href=&quot;#4-case-语句&quot; class=&quot;headerlink&quot; title=&quot;4. case 语句&quot;&gt;&lt;/a&gt;4. case 语句&lt;/h5&gt;&lt;p&gt;case表达式可以用来匹配一个给定的字符串，而不是数字。case语句有以下格式：&lt;br&gt;&lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;case&lt;/span&gt; word &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    模式) 声明 ;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;esac&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;variable&quot;&gt;$1&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    -h) &lt;span class=&quot;built_in&quot;&gt;help&lt;/span&gt;; &lt;span class=&quot;built_in&quot;&gt;shift&lt;/span&gt; 1;; &lt;span class=&quot;comment&quot;&gt;#调用help函数&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    --) &lt;span class=&quot;built_in&quot;&gt;shift&lt;/span&gt;; &lt;span class=&quot;built_in&quot;&gt;break&lt;/span&gt;;;  &lt;span class=&quot;comment&quot;&gt;#结束选项&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    -*) error &lt;span class=&quot;string&quot;&gt;&quot;error: no such option &lt;span class=&quot;variable&quot;&gt;$1&lt;/span&gt;. -h for help&quot;&lt;/span&gt;;; &lt;span class=&quot;comment&quot;&gt;# 错误提示&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    *)  &lt;span class=&quot;built_in&quot;&gt;break&lt;/span&gt;;; &lt;span class=&quot;comment&quot;&gt;#退出判断&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;esac&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;上面使用了一个特殊变量$1，该变量包含有传递给这个脚本的第一个参数值。“*”意味着匹配任何东西。在最后的模式匹配中加入*这项是个好习惯，可以用它来检测非法的输入。&lt;/p&gt;
+&lt;h5 id=&quot;5-for-while-循环语句&quot;&gt;&lt;a href=&quot;#5-for-while-循环语句&quot; class=&quot;headerlink&quot; title=&quot;5. for/while 循环语句&quot;&gt;&lt;/a&gt;5. for/while 循环语句&lt;/h5&gt;&lt;p&gt;循环是只要条件成立就反复执行。shell有两种形式的循环，一种是while(until),另一种是for。&lt;br&gt;&lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;while&lt;/span&gt; ... ; &lt;span class=&quot;keyword&quot;&gt;do&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;...&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;done&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;只要测试表达式条件为真，则while循环将一直运行。关键字“break”用来跳出循环，而关键字“continue”则可以跳过一个循环的余下部分，直接跳到下一次循环中。&lt;br&gt;for循环会查看一个字符串行表（字符串用空格分隔），若找到匹配进行循环：&lt;br&gt;&lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; var &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; ... ; &lt;span class=&quot;keyword&quot;&gt;do&lt;/span&gt; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;...&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;done&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Shell-脚本编程-——-秘笈1&quot;&gt;&lt;a href=&quot;#Shell-脚本编程-——-秘笈1&quot; class=&quot;headerlink&quot; title=&quot;Shell 脚本编程 —— 秘笈1&quot;&gt;&lt;/a&gt;Shell 脚本编程 —— 秘笈1&lt;/h1&gt;&lt;p&gt;标签： linux 
+    
+    </summary>
+    
+      <category term="技术" scheme="http://crazywen.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="Shell" scheme="http://crazywen.github.io/tags/Shell/"/>
+    
+      <category term="Linux" scheme="http://crazywen.github.io/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>卓越软件设计匠艺 —— 培训总结</title>
+    <link href="http://crazywen.github.io/2016/05/19/%E5%8D%93%E8%B6%8A%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E5%8C%A0%E8%89%BA%20%E2%80%94%E2%80%94%20%E5%9F%B9%E8%AE%AD%E6%80%BB%E7%BB%93/"/>
+    <id>http://crazywen.github.io/2016/05/19/卓越软件设计匠艺 —— 培训总结/</id>
+    <published>2016-05-19T05:45:31.000Z</published>
+    <updated>2016-05-19T07:30:22.637Z</updated>
+    
+    <content type="html">&lt;h1 id=&quot;卓越软件设计匠艺-——-培训总结&quot;&gt;&lt;a href=&quot;#卓越软件设计匠艺-——-培训总结&quot; class=&quot;headerlink&quot; title=&quot;卓越软件设计匠艺 —— 培训总结&quot;&gt;&lt;/a&gt;卓越软件设计匠艺 —— 培训总结&lt;/h1&gt;&lt;p&gt;标签： 软件设计 架构 职责 关注点&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&quot;第一单元：面向对象设计之职责&quot;&gt;&lt;a href=&quot;#第一单元：面向对象设计之职责&quot; class=&quot;headerlink&quot; title=&quot;第一单元：面向对象设计之职责&quot;&gt;&lt;/a&gt;第一单元：面向对象设计之职责&lt;/h3&gt;&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;角色、职责与协作&lt;/li&gt;
+&lt;li&gt;职责驱动设计&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;面向对象设计的核心驱动力是&lt;strong&gt;对象的职责&lt;/strong&gt;，合理的职责分配是卓越软件设计的前提。只有合理地分辨对象的职责，才能够定义良好的对象，并实现符合系统一致性的对象协作关系。&lt;/p&gt;
+&lt;h4 id=&quot;1-职责的层次&quot;&gt;&lt;a href=&quot;#1-职责的层次&quot; class=&quot;headerlink&quot; title=&quot;1. 职责的层次&quot;&gt;&lt;/a&gt;1. 职责的层次&lt;/h4&gt;&lt;p&gt;通过职责层次模型对需求进行分析，识别出业务价值、业务功能与业务实现。职责层次的分解可以有效地帮助设计者辨别职责。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;职责层次的识别 &lt;/li&gt;
+&lt;li&gt;职责层次与软件架构层次之间的关系&lt;/li&gt;
+&lt;li&gt;职责与概念、规约与实现               &lt;/li&gt;
+&lt;li&gt;案例分析：分析邮件服务器代码暴露的问题，在可重用性、代码可维护性、可扩展性等诸多方面着手，剖析代码坏味道。通过分辨职责层次，来改善设计。并提出需求变更，从而引入对Observer模式、Strategy模式、Simple Factory模式、Mediator模式与Chain Of Responsibility模式的对比与分析；             &lt;/li&gt;
+&lt;li&gt;实战演练：设计一个作业调度框架，它能够根据指定的时间触发作业，执行自定义任务。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&quot;2-职责的分类&quot;&gt;&lt;a href=&quot;#2-职责的分类&quot; class=&quot;headerlink&quot; title=&quot;2. 职责的分类&quot;&gt;&lt;/a&gt;2. 职责的分类&lt;/h4&gt;&lt;p&gt;职责并不等于功能，也不等同于行为或方法。分析职责，应从对象的认知与行为入手。&lt;/p&gt;
+&lt;h4 id=&quot;3-对象的角色&quot;&gt;&lt;a href=&quot;#3-对象的角色&quot; class=&quot;headerlink&quot; title=&quot;3. 对象的角色&quot;&gt;&lt;/a&gt;3. 对象的角色&lt;/h4&gt;&lt;p&gt;角色、职责与协作是三位一体的关系，角色是发起职责的对象，职责则应该是对象之间的协作。不同角色的对象，履行的职责是不同的。 &lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;信息持有者：信息的格式；是否需要持久化；信息源的改变，是否需要更新；处理信息的方式；&lt;/li&gt;
+&lt;li&gt;构造者：构造者与构造对象的关系；构造的方式；聚合与合成； &lt;/li&gt;
+&lt;li&gt;服务提供者：主动告知，被动告知；独立的行为；提供有业务价值的行为； &lt;/li&gt;
+&lt;li&gt;协调者：如何委派和转发请求；如何通知其他对象要做的工作；如何通知状态的变化；&lt;/li&gt;
+&lt;li&gt;控制者：控制者与被控制者的关系；控制的决策与逻辑；驱动其他对象；收集与决策有关的信息；&lt;/li&gt;
+&lt;li&gt;案例：处理HTTP请求与应答，体现信息持有者角色；JMS对Queue的创建体现构造者角色；税务报告的生成体现服务提供者角色；服务定位器体现协调者角色；内容验证器体现控制者角色；&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&quot;4-职责与封装的关系&quot;&gt;&lt;a href=&quot;#4-职责与封装的关系&quot; class=&quot;headerlink&quot; title=&quot;4. 职责与封装的关系&quot;&gt;&lt;/a&gt;4. 职责与封装的关系&lt;/h4&gt;&lt;p&gt;缺乏合理的封装，就会缺少正确的领域对象，从而导致领域信息散乱分布到系统各个方法，使得概念不够清晰，导致职责混乱。&lt;/p&gt;
+&lt;h4 id=&quot;5-模块级的职责分配&quot;&gt;&lt;a href=&quot;#5-模块级的职责分配&quot; class=&quot;headerlink&quot; title=&quot;5. 模块级的职责分配&quot;&gt;&lt;/a&gt;5. 模块级的职责分配&lt;/h4&gt;&lt;blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;问题分析：模块之间职责的分配，在面临三种问题时，应该如何应对？通过对具体问题的分析，讨论模块之间的职责分配，以及对高内聚、松耦合的理解。同时，该问题分析还将引入Template Method模式； &lt;/li&gt;
+&lt;li&gt;问题分析：错误的职责分配带来的循环依赖问题，以及对包的复用原则的违背，提出解决办法；&lt;/li&gt;
+&lt;li&gt;模块重用：对eBay模块的分析，以及对某大型系统架构的演进，提出模块重用的方式；&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&quot;6-原则与模式&quot;&gt;&lt;a href=&quot;#6-原则与模式&quot; class=&quot;headerlink&quot; title=&quot;6. 原则与模式&quot;&gt;&lt;/a&gt;6. 原则与模式&lt;/h4&gt;&lt;blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;单一职责原则：分析该原则的核心思想，关注对象的变化点； &lt;/li&gt;
+&lt;li&gt;案例分析：功能引擎中对功能对象的加载，如何体现职责分离带来的好处；通过对案例分析引入Proxy模式； &lt;/li&gt;
+&lt;li&gt;专家模式：专家模式的核心思想是信息的持有者是操作该信息的专家； &lt;/li&gt;
+&lt;li&gt;案例分析：报表参数的处理方式，如何通过识别设计违背了专家模式，并依据专家模式对设计进行改进，从而巧妙地利用多态消除代码坏味道，并进而通过引入Adapter模式处理模块之间的依赖关系； &lt;/li&gt;
+&lt;li&gt;自治对象：分析了自治对象的特征，分别包括：最小完备，稳定空间，自我履行与独立进化。 &lt;/li&gt;
+&lt;li&gt;案例分析：用户状态机，给出了某金融系统中复杂的用户状态迁移，体现的复杂授权、登录等业务逻辑，并由此引入State模式来简化设计，体现自治对象的特征。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;第二单元-面向对象设计之抽象&quot;&gt;&lt;a href=&quot;#第二单元-面向对象设计之抽象&quot; class=&quot;headerlink&quot; title=&quot;第二单元 面向对象设计之抽象&quot;&gt;&lt;/a&gt;第二单元 面向对象设计之抽象&lt;/h3&gt;&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;抽象与变化&lt;/li&gt;
+&lt;li&gt;扩展式设计&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;合理的职责分配并不能完全保证软件设计的卓越，因为需求变化是软件开发的常态，因此设计必须在一定程度满足变化，保证系统的可扩展性。&lt;/p&gt;
+&lt;h4 id=&quot;1-抽象的意义&quot;&gt;&lt;a href=&quot;#1-抽象的意义&quot; class=&quot;headerlink&quot; title=&quot;1. 抽象的意义&quot;&gt;&lt;/a&gt;1. 抽象的意义&lt;/h4&gt;&lt;p&gt;抽象的关键在于寻找多个对象（或行为）具有的共同特征，并对特性进行泛化。泛化的特征可以暴露在外，从而隔离内部的实现。 &lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;用例分析：对用例和参与者的泛化；遵循的原则； &lt;/li&gt;
+&lt;li&gt;案例分析：授权框架的设计，体现了对共同特征的提取，合理引入Chain Of Responsibility模式与Template Method模式； &lt;/li&gt;
+&lt;li&gt;案例分析：项目管理模型的抽象，通过对多种项目管理过程进行分析，对各种模型概念进行分类，并抽象出模型的共同特征，从而简化模型； &lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&quot;2-识别变化&quot;&gt;&lt;a href=&quot;#2-识别变化&quot; class=&quot;headerlink&quot; title=&quot;2. 识别变化&quot;&gt;&lt;/a&gt;2. 识别变化&lt;/h4&gt;&lt;p&gt;要保证设计的可扩展性，主要过程是识别变化点，然后对变化进行封装。 &lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;变化点：常见的变化点包括业务规则、算法策略、外部服务、硬件支持、命令请求、协议标准、数据格式、业务流程、系统配置、界面表现； &lt;/li&gt;
+&lt;li&gt;案例分析：电子商务系统的Invoice业务规则，引入Specification模式；CIMS系统的机器加载策略，引入Strategy模式；短信服务，引入Facade模式与Adapter模式；人力资源系统考勤模块，引入Gateway模式； &lt;/li&gt;
+&lt;li&gt;案例分析：CQRS框架，对命令处理逻辑的包装，引入Decorator模式，并通过分析变化点，引入另一种替代Decorator模式的设计。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&quot;3-依赖解耦&quot;&gt;&lt;a href=&quot;#3-依赖解耦&quot; class=&quot;headerlink&quot; title=&quot;3. 依赖解耦&quot;&gt;&lt;/a&gt;3. 依赖解耦&lt;/h4&gt;&lt;p&gt;处理变化的关键是要解除对具体对象的依赖。 &lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;表驱动法 &lt;/li&gt;
+&lt;li&gt;配置与反射 &lt;/li&gt;
+&lt;li&gt;IoC容器 &lt;/li&gt;
+&lt;li&gt;惯例优于配置 &lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&quot;4-扩展式设计&quot;&gt;&lt;a href=&quot;#4-扩展式设计&quot; class=&quot;headerlink&quot; title=&quot;4. 扩展式设计&quot;&gt;&lt;/a&gt;4. 扩展式设计&lt;/h4&gt;&lt;p&gt;扩展式设计分为三个步骤，分别为：分离职责各司其职，利用抽象统一接口，引用接口预留空白。扩展式设计可以有效地保证整个系统的可扩展性。 &lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;扩展式设计的步骤 &lt;/li&gt;
+&lt;li&gt;实战演练：订单处理，通过三次迭代逐步改进原有设计，并分别遵循专家模式、分离原则与扩展式设计，保证设计在修改最小的前提下满足需求变化。在设计演进中，讨论对设计模式的合理运用，并引入Specification模式； &lt;/li&gt;
+&lt;li&gt;案例分析：配置管理框架的设计，该框架能够支持配置信息的多种存储形态，包括文件、数据库、LDAP等；支持多种获取配置的方式，如Web服务，REST服务。配置管理框架的接口需要保证其统一性和一致性，同时在满足可扩展要求下，提供接口的易用性。 &lt;/li&gt;
+&lt;li&gt;案例分析：消息队列规范的设计。通过分析JMS、MSMQ、RabbitMQ和NServiceBus的设计，理解抽象的含义，例如理解面向接口设计、接口隔离原则、按意图设计、Facade模式与企业集成模式。&lt;br&gt;5.实战演练：CIMS基于消息的分布式架构。通过对服务的统一抽象，以及对消息处理的职责分配，建立一个协作合理的分布式架构。设计过程中会引入Command模式、Publisher – Subscriber模式、Message Bus模式、Message Translator模式、Lookup模式。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;卓越软件设计匠艺-——-培训总结&quot;&gt;&lt;a href=&quot;#卓越软件设计匠艺-——-培训总结&quot; class=&quot;headerlink&quot; title=&quot;卓越软件设计匠艺 —— 培训总结&quot;&gt;&lt;/a&gt;卓越软件设计匠艺 —— 培训总结&lt;/h1&gt;&lt;p&gt;标签： 软件设计 架构 职责
+    
+    </summary>
+    
+      <category term="技术" scheme="http://crazywen.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+      <category term="工作" scheme="http://crazywen.github.io/categories/%E6%8A%80%E6%9C%AF/%E5%B7%A5%E4%BD%9C/"/>
+    
+    
+      <category term="软件设计" scheme="http://crazywen.github.io/tags/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1/"/>
+    
+      <category term="设计模式" scheme="http://crazywen.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+      <category term="职责" scheme="http://crazywen.github.io/tags/%E8%81%8C%E8%B4%A3/"/>
+    
+      <category term="面向对象" scheme="http://crazywen.github.io/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>进程和线程</title>
+    <link href="http://crazywen.github.io/2016/02/19/%E8%BF%9B%E7%A8%8B%E5%92%8C%E7%BA%BF%E7%A8%8B/"/>
+    <id>http://crazywen.github.io/2016/02/19/进程和线程/</id>
+    <published>2016-02-19T08:20:31.000Z</published>
+    <updated>2016-05-11T02:56:05.943Z</updated>
+    
+    <content type="html">&lt;h1 id=&quot;进程和线程&quot;&gt;&lt;a href=&quot;#进程和线程&quot; class=&quot;headerlink&quot; title=&quot;进程和线程&quot;&gt;&lt;/a&gt;进程和线程&lt;/h1&gt;&lt;p&gt;标签： 进程 线程&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&quot;进程&quot;&gt;&lt;a href=&quot;#进程&quot; class=&quot;headerlink&quot; title=&quot;进程&quot;&gt;&lt;/a&gt;进程&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;具有一定独立功能的程序关于某个数据集合上的一次运行活动,进程是系统进行资源分配和调度的一个独立单位。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;线程&quot;&gt;&lt;a href=&quot;#线程&quot; class=&quot;headerlink&quot; title=&quot;线程&quot;&gt;&lt;/a&gt;线程&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;进程的一个实体,是CPU调度和分派的基本单位,它是比进程更小的能独立运行的基本单位.线程自己基本上不拥有系统资源,只拥有一点在运行中必不可少的资源(如程序计数器,一组寄存器和栈),但是它可与同属一个进程的其他的线程共享进程所拥有的全部资源。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;进程和线程的区别？&quot;&gt;&lt;a href=&quot;#进程和线程的区别？&quot; class=&quot;headerlink&quot; title=&quot;进程和线程的区别？&quot;&gt;&lt;/a&gt;进程和线程的区别？&lt;/h3&gt;&lt;blockquote&gt;
+&lt;h4 id=&quot;并发性、调度、系统开销、拥有资源&quot;&gt;&lt;a href=&quot;#并发性、调度、系统开销、拥有资源&quot; class=&quot;headerlink&quot; title=&quot;(并发性、调度、系统开销、拥有资源)&quot;&gt;&lt;/a&gt;(并发性、调度、系统开销、拥有资源)&lt;/h4&gt;&lt;p&gt;进程和线程的主要差别在于它们是不同的操作系统资源管理方式。进程有独立的地址空间，一个进程崩溃后，在保护模式下不会对其它进程产生影响，而线程只是一个进程中的不同执行路径。线程有自己的堆栈和局部变量，但线程之间没有单独的地址空间，一个线程死掉就等于整个进程死掉，所以多进程的程序要比多线程的程序健壮，但在进程切换时，耗费资源较大，效率要差一些。但对于一些要求同时进行并且又要共享某些变量的并发操作，只能用线程，不能用进程。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;引入线程带来的主要好处：&quot;&gt;&lt;a href=&quot;#引入线程带来的主要好处：&quot; class=&quot;headerlink&quot; title=&quot;引入线程带来的主要好处：&quot;&gt;&lt;/a&gt;引入线程带来的主要好处：&lt;/h3&gt;&lt;blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;在进程内创建、终止线程比创建、终止进程要快；&lt;/li&gt;
+&lt;li&gt;同一进程内的线程间切换比进程间的切换要快,尤其是用户级线程间的切换。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;进程的实现&quot;&gt;&lt;a href=&quot;#进程的实现&quot; class=&quot;headerlink&quot; title=&quot;进程的实现&quot;&gt;&lt;/a&gt;进程的实现&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;为了实现进程模型，操作系统维护着一张表格（一个结构数组），即进程表（process table）。每个进程占用一个进程表项。（有些作者称这些表项为进程控制块。）该表项包含了进程状态的重要信息，包括程序计数器、堆栈指针、内存分配状况、所打开文件的状态、账号和调度信息，以及其他在进程由运行态转换到就绪态或阻塞态时必须保存的信息，从而保证该进程随后能再次启动，就像从未被中断过一样。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;http://images.51cto.com/files/uploadimg/20090805/111143780.jpg&quot; alt=&quot;image&quot;&gt;&lt;/p&gt;
+&lt;p&gt;图2-4展示了在一个典型系统中的关键字段。第一列中的字段与进程管理有关。其他两列分别与存储管理和文件管理有关。应该注意到进程表中的字段是与系统密切相关的，不过该图给出了所需要信息的大致介绍。&lt;/p&gt;
+&lt;h3 id=&quot;进程的控制来管理&quot;&gt;&lt;a href=&quot;#进程的控制来管理&quot; class=&quot;headerlink&quot; title=&quot;进程的控制来管理&quot;&gt;&lt;/a&gt;进程的控制来管理&lt;/h3&gt;&lt;p&gt;系统中的进程不断地产生和消亡，进程生命周期的动态变化过程由进程管理程序来控制，对于进程的控制和管理包括：创建进程、阻塞进程、唤醒进程、挂起进程、激活进程、终止进程和撤销进程等，这些功能均由系统中的原语来实现。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原语(primitive)在核心态执行，是完成系统特定功能的不可分割的过程，它具有原子操作性，其程序段不允许被中断，或者说原语不能并发执行。原语的实现方法之一是以系统调用的方式提供原语接口，采用屏蔽中断的方式来实现，以保证原语操作不被中断的特性。&lt;/p&gt;
+&lt;/blockquote&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;进程和线程&quot;&gt;&lt;a href=&quot;#进程和线程&quot; class=&quot;headerlink&quot; title=&quot;进程和线程&quot;&gt;&lt;/a&gt;进程和线程&lt;/h1&gt;&lt;p&gt;标签： 进程 线程&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&quot;进程&quot;&gt;&lt;a href=&quot;#进程&quot; class=&quot;header
+    
+    </summary>
+    
+      <category term="技术" scheme="http://crazywen.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+      <category term="工作" scheme="http://crazywen.github.io/categories/%E6%8A%80%E6%9C%AF/%E5%B7%A5%E4%BD%9C/"/>
+    
+    
+      <category term="进程" scheme="http://crazywen.github.io/tags/%E8%BF%9B%E7%A8%8B/"/>
+    
+      <category term="线程" scheme="http://crazywen.github.io/tags/%E7%BA%BF%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HTTP2.0 的改进</title>
+    <link href="http://crazywen.github.io/2016/02/19/http2.0/"/>
+    <id>http://crazywen.github.io/2016/02/19/http2.0/</id>
+    <published>2016-02-19T02:20:31.000Z</published>
+    <updated>2016-05-11T02:56:40.477Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;HTTP2-0-的改进-转载自知乎&quot;&gt;&lt;a href=&quot;#HTTP2-0-的改进-转载自知乎&quot; class=&quot;headerlink&quot; title=&quot;HTTP2.0 的改进(转载自知乎)&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://www.zhihu.com/question/34074946&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;HTTP2.0 的改进(转载自知乎)&lt;/a&gt;&lt;/h2&gt;&lt;p&gt; HTTP 2.0 的出现，相比于 HTTP 1.x ，大幅度的提升了 web 性能。在与 HTTP/1.1 完全语义兼容的基础上，进一步减少了网络延迟。而对于前端开发人员来说，无疑减少了在前端方面的优化工作。本文将对 HTTP 2.0 协议 个基本技术点进行总结，联系相关知识，探索 HTTP 2.0 是如何提高性能的。&lt;/p&gt;
+&lt;h3 id=&quot;初露锋芒&quot;&gt;&lt;a href=&quot;#初露锋芒&quot; class=&quot;headerlink&quot; title=&quot;初露锋芒&quot;&gt;&lt;/a&gt;初露锋芒&lt;/h3&gt;&lt;p&gt; &lt;a href=&quot;https://http2.akamai.com/demo&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;HTTP/2: the Future of the Internet&lt;/a&gt; 这是 Akamai 公司建立的一个官方的演示，用以说明 HTTP/2 相比于之前的 HTTP/1.1 在性能上的大幅度提升。 同时请求 379 张图片，从Load time 的对比可以看出 HTTP/2 在速度上的优势。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&quot;1-多路复用-Multiplexing&quot;&gt;&lt;a href=&quot;#1-多路复用-Multiplexing&quot; class=&quot;headerlink&quot; title=&quot;1.多路复用 (Multiplexing)&quot;&gt;&lt;/a&gt;1.多路复用 (Multiplexing)&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;多路复用允许同时通过单一的 HTTP/2 连接发起多重的请求-响应消息。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;众所周知 ，在 HTTP/1.1 协议中 「浏览器客户端在同一时间，针对同一域名下的请求有一定数量限制。超过限制数目的请求会被阻塞」。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Clients that use persistent connections SHOULD limit the number of simultaneous connections that they maintain to a given server. A single-user client SHOULD NOT maintain more than 2 connections with any server or proxy. A proxy SHOULD use up to 2*N connections to another server or proxy, where N is the number of simultaneously active users. These guidelines are intended to improve HTTP response times and avoid congestion.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;来源：RFC-2616-8.1.4 Practical Considerations&lt;br&gt;&lt;a href=&quot;https://www.w3.org/Protocols/rfc2616/rfc2616-sec8.html#sec8.1.4&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;HTTP/1.1: Connections&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;不同浏览器对该限制的数目。&lt;br&gt;来源:&lt;br&gt;&lt;a href=&quot;http://www.stevesouders.com/blog/2008/03/20/roundup-on-parallel-connections/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Roundup on Parallel Connections&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;这也是为何一些站点会有多个静态资源 CDN 域名的原因之一，拿 Twitter 为例，&lt;a href=&quot;http://twimg.com，目的就是变相的解决浏览器针对同一域名的请求限制阻塞问题。&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://twimg.com，目的就是变相的解决浏览器针对同一域名的请求限制阻塞问题。&lt;/a&gt;&lt;br&gt;而 HTTP/2 的多路复用(Multiplexing) 则允许同时通过单一的 HTTP/2 连接发起多重的请求-响应消息。&lt;br&gt;因此 HTTP/2 可以很容易的去实现多流并行而不用依赖建立多个 TCP 连接，HTTP/2 把 HTTP 协议通信的基本单位缩小为一个一个的帧，这些帧对应着逻辑流中的消息。并行地在同一个 TCP 连接上双向交换消息。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&quot;2-二进制分帧&quot;&gt;&lt;a href=&quot;#2-二进制分帧&quot; class=&quot;headerlink&quot; title=&quot;2.二进制分帧&quot;&gt;&lt;/a&gt;2.二进制分帧&lt;/h3&gt;&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;在不改动 HTTP/1.x 的语义、方法、状态码、URI 以及首部字段….. 的情况下, HTTP/2 是如何做到「突破 HTTP1.1 的性能限制，改进传输性能，实现低延迟和高吞吐量」的 ?&lt;br&gt;关键之一就是在 应用层(HTTP/2)和传输层(TCP or UDP)之间增加一个二进制分帧层。&lt;/li&gt;
+&lt;li&gt;在二进制分帧层中， HTTP/2 会将所有传输的信息分割为更小的消息和帧（frame）,并对它们采用二进制格式的编码 ，其中 HTTP1.x 的首部信息会被封装到 HEADER frame，而相应的 Request Body 则封装到 DATA frame 里面。&lt;/li&gt;
+&lt;li&gt;HTTP/2 通信都在一个连接上完成，这个连接可以承载任意数量的双向数据流。&lt;br&gt;在过去， HTTP 性能优化的关键并不在于高带宽，而是低延迟。TCP 连接会随着时间进行自我「调谐」，起初会限制连接的最大速度，如果数据成功传输，会随着时间的推移提高传输的速度。这种调谐则被称为 TCP 慢启动。由于这种原因，让原本就具有突发性和短时性的 HTTP 连接变的十分低效。&lt;br&gt;HTTP/2 通过让所有数据流共用同一个连接，可以更有效地使用 TCP 连接，让高带宽也能真正的服务于 HTTP 的性能提升。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;总结：&lt;br&gt;&lt;strong&gt;单连接多资源的方式，减少服务端的链接压力,内存占用更少,连接吞吐量更大&lt;br&gt;由于 TCP 连接的减少而使网络拥塞状况得以改善，同时慢启动时间的减少,使拥塞和丢包恢复速度更快&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&quot;3-首部压缩（Header-Compression）&quot;&gt;&lt;a href=&quot;#3-首部压缩（Header-Compression）&quot; class=&quot;headerlink&quot; title=&quot;3.首部压缩（Header Compression）&quot;&gt;&lt;/a&gt;3.首部压缩（Header Compression）&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;HTTP/1.1并不支持 HTTP 首部压缩，为此 SPDY 和 HTTP/2 应运而生， SPDY 使用的是通用的DEFLATE 算法，而 HTTP/2 则使用了专门为首部压缩而设计的 HPACK 算法。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h3 id=&quot;4-服务端推送（Server-Push）&quot;&gt;&lt;a href=&quot;#4-服务端推送（Server-Push）&quot; class=&quot;headerlink&quot; title=&quot;4.服务端推送（Server Push）&quot;&gt;&lt;/a&gt;4.服务端推送（Server Push）&lt;/h3&gt;&lt;p&gt;服务端推送是一种在客户端请求之前发送数据的机制。在 HTTP/2 中，服务器可以对客户端的一个请求发送多个响应。Server Push 让 HTTP1.x 时代使用内嵌资源的优化手段变得没有意义；如果一个请求是由你的主页发起的，服务器很可能会响应主页内容、logo 以及样式表，因为它知道客户端会用到这些东西。这相当于在一个 HTML 文档内集合了所有的资源，不过与之相比，服务器推送还有一个很大的优势：可以缓存！也让在遵循同源的情况下，不同页面之间可以共享缓存资源成为可能。&lt;/p&gt;
+&lt;p&gt;参考资料:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;HTTPS、SPDY 以及HTTP/2性能简单对比：&lt;a href=&quot;http://blog.httpwatch.com/2015/01/16/a-simple-performance-comparison-of-https-spdy-and-http2/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;A Simple Performance Comparison of HTTPS, SPDY and HTTP/2&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;HTTP/2 的压缩算法–HPACK（RFC7541）：&lt;a href=&quot;http://httpwg.org/specs/rfc7541.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;HPACK: Header Compression for HTTP/2&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;NGINX HTTP/2 白皮书：&lt;a href=&quot;https://www.nginx.com/wp-content/uploads/2015/09/NGINX_HTTP2_White_Paper_v4.pdf&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://www.nginx.com/wp-content/uploads/2015/09/NGINX_HTTP2_White_Paper_v4.pdf&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;NGINX Blog–提升 HTTP/2 性能的 7个小建议：&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.nginx.com/blog/7-tips-for-faster-http2-performance/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;7 Tips for Faster HTTP/2 Performance（原文）&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.w3ctech.com/topic/1563#tip7sharding&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;[译]使用HTTP/2提升性能的7个建议（李松峰译）&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://cascadingmedia.com/insites/2015/03/http-2.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;HTTP/2 for a Faster Web&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;O’Reilly HTTP2-high-perf-browser-networking：&lt;a href=&quot;http://www.oreilly.com/webops-perf/free/files/HTTP2-high-perf-browser-networking.pdf&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.oreilly.com/webops-perf/free/files/HTTP2-high-perf-browser-networking.pdf&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;HTTP/2 新特性浅析：&lt;a href=&quot;http://io.upyun.com/2015/05/13/http2/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;HTTP/2 新特性浅析&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Kevin blog 关于 HTTP/2 的系列归档：&lt;a href=&quot;http://www.unclekevin.org/?cat=15&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;HTTP/2 | 凯文叔叔的网志&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Can i use 上关于支持HTTP/2 的浏览器：&lt;a href=&quot;http://caniuse.com/#feat=http2&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Can I use… Support tables for HTML5, CSS3, etc&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;HTTP2-0-的改进-转载自知乎&quot;&gt;&lt;a href=&quot;#HTTP2-0-的改进-转载自知乎&quot; class=&quot;headerlink&quot; title=&quot;HTTP2.0 的改进(转载自知乎)&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://www.zhihu.com/que
+    
+    </summary>
+    
+      <category term="技术" scheme="http://crazywen.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="http2.0" scheme="http://crazywen.github.io/tags/http2-0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>并行和并发的区别</title>
+    <link href="http://crazywen.github.io/2016/02/18/%E5%B9%B6%E8%A1%8C%E4%B8%8E%E5%B9%B6%E5%8F%91/"/>
+    <id>http://crazywen.github.io/2016/02/18/并行与并发/</id>
+    <published>2016-02-18T08:20:31.000Z</published>
+    <updated>2016-05-11T02:56:33.139Z</updated>
+    
+    <content type="html">&lt;h1 id=&quot;并行和并发的区别&quot;&gt;&lt;a href=&quot;#并行和并发的区别&quot; class=&quot;headerlink&quot; title=&quot;并行和并发的区别&quot;&gt;&lt;/a&gt;并行和并发的区别&lt;/h1&gt;&lt;p&gt;标签： 并行 并发&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&quot;并行-Parallel&quot;&gt;&lt;a href=&quot;#并行-Parallel&quot; class=&quot;headerlink&quot; title=&quot;并行 Parallel&quot;&gt;&lt;/a&gt;并行 Parallel&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;就是指同一时刻同时发生进行的事情或动作（不同的执行实体拥有各自的资源，相互之间可能互不干扰）&lt;/p&gt;
+&lt;h3 id=&quot;并发-Concurrency&quot;&gt;&lt;a href=&quot;#并发-Concurrency&quot; class=&quot;headerlink&quot; title=&quot;并发 Concurrency&quot;&gt;&lt;/a&gt;并发 Concurrency&lt;/h3&gt;&lt;p&gt;伪并行，并不是指同时发生，而是指在很短时间内轮流发生（意味着多个执行实体（比方说上面例子中的人）可能需要竞争资源（咖啡机），因此就不可避免带来竞争和同步的问题）&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;https://camo.githubusercontent.com/111d18a93f5b2a1eb626c9ac4bbb303a814702af/68747470733a2f2f7261772e6769746875622e636f6d2f666f7268617070792f412d44657461696c65642d43706c7573706c75732d436f6e63757272656e63792d5475746f7269616c2f6d61737465722f696d616765732f63686170746572312f636f6e63757272656e742d76732d706172616c6c656c2e706e67&quot; alt=&quot;tag-img&quot;&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;并行和并发的区别&quot;&gt;&lt;a href=&quot;#并行和并发的区别&quot; class=&quot;headerlink&quot; title=&quot;并行和并发的区别&quot;&gt;&lt;/a&gt;并行和并发的区别&lt;/h1&gt;&lt;p&gt;标签： 并行 并发&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&quot;并行-Parallel&quot;&gt;&lt;a hre
+    
+    </summary>
+    
+      <category term="技术" scheme="http://crazywen.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+      <category term="工作" scheme="http://crazywen.github.io/categories/%E6%8A%80%E6%9C%AF/%E5%B7%A5%E4%BD%9C/"/>
+    
+    
+      <category term="并行" scheme="http://crazywen.github.io/tags/%E5%B9%B6%E8%A1%8C/"/>
+    
+      <category term="并发" scheme="http://crazywen.github.io/tags/%E5%B9%B6%E5%8F%91/"/>
+    
+  </entry>
+  
+</feed>
